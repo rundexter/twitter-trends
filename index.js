@@ -1,3 +1,7 @@
+var Twit = require('twit')
+    , assert = require('assert')
+    , _ = require('lodash')
+    ;
 module.exports = {
     /**
      * The main entry point for the Dexter module
@@ -6,8 +10,27 @@ module.exports = {
      * @param {AppData} dexter Container for all data used in this workflow.
      */
     run: function(step, dexter) {
-        var results = { foo: 'bar' };
-        //Call this.complete with the module's output.  If there's an error, call this.fail(message) instead.
-        this.complete(results);
+        var consumerKey = dexter.environment('twitter_consumer_key')
+            , consumerSecret = dexter.environment('twitter_consumer_secret')
+            , accessToken = dexter.environment('twitter_access_token')
+            , accessTokenSecret = dexter.environment('twitter_access_token_secret')
+            , T
+            , self = this;
+        assert(consumerKey, 'environment.twitter_consumer_key required');
+        assert(consumerSecret, 'environment.twitter_consumer_secret required');
+        assert(accessToken, 'environment.twitter_access_token required');
+        assert(accessTokenSecret, 'environment.twitter_access_token_secret required');
+        T = new Twit({
+            consumer_key: consumerKey
+            , consumer_secret: consumerSecret
+            , access_token: accessToken
+            , access_token_secret: accessTokenSecret
+        });
+        T.get('trends/place', { id: 1 }, function(err, data, response) {
+            if(err) {
+                return self.fail(err);
+            }
+            self.complete(data[0].trends);
+        });
     }
 };

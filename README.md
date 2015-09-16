@@ -1,42 +1,19 @@
-# Dexter Module
-> This folder contains the scaffolding for implementing a Dexter module. 
+# Twitter Trends 
 
-## File Details
-### index.js
-> Entrypoint for your module: must export an object in the root that minimally
-> contains a run method.  The exported object will be wrapped in a Dexter
-> BaseStep class that provides the following functions:
->   * this.run(step, dexter); //You must implement this
->   * this.complete(data); //Call this ONCE if execution is successful
->   * this.fail(err); //Call this ONCE if there's a critical issue
->   * this.log(msgOrData); //Call this to log either a message or data
+This Dexter Module will fetch the latest trends from [Twitter](https://dev.twitter.com/rest/reference/get/trends/place).
+It currently fetches global trends, though optional regional trends might be added in the future.
 
-### package.json
-> Standard Node.js `package.json` file that specifies the name of your module. 
-> The name of your module will need to be unique in the Dexter ecosystem.  
-> It's a good idea to prefix the module name with a unique username.
+# Getting Twitter credentials
 
-### meta.json
-> Metadata required by the Dexter runtime. You should update this --
-> instructions within.
+To use this module, you'll have to create an app and authenticate yourself with it.  There's currently no way to have other
+users sign up for your twitter app.
 
-### form 
-> For future use by the Dexter App Editor
+1. Log into https://apps.twitter.com/ and create a project
+1. Choose a name - right now no one else will see it, so have fun! 
+1. Go to Keys and Access tokens, and generate a token for yourself
 
-## Implmentation Details
-
-### Testing the module
-> Update the default fixture in `fixtures/default.js` with some artificial details for
-> testing. Minimally add dummy values for your inputs. When you're ready test your module:
-
-```shell
-$ dexter run  # or dexter run <fixture-name> 
-```
-
-### Registering the module
-> When you're ready to try your module out in a real App, you'll want to push it
-> into Dexter.  To do that, push it to the rundexter git server:
-
-```shell
-$ dexter push
-```
+You should now have the following:
+* **Consumer key**: add to your App's private variables as twitter_consumer_key
+* **Consumer secret**: add to your App's private variables as twitter_consumer_secret
+* **Access token**: add to your App's private variables as twitter_access_token
+* **Access token secret**: add to your App's private variables as twitter_access_token_secret

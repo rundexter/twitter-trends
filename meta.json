@@ -1,28 +1,24 @@
-/*
- * Metadata describing the module operation
- */
 {
-    //Required. Inputs the module expects.
     "inputs": [
-        //e.g.
-        /*
+    ],
+    "outputs": [
         {
-            "id": "from",
-            "title":"From",
+            "id": "hashtag",
+            "title":"Hashtag",
+            "type":"string"
+        }, {
+            "id": "url",
+            "title":"Twitter URL",
+            "type":"string"
+        }, {
+            "id": "query",
+            "title":"Search query",
+            "type":"string"
+        }, {
+            "id": "promoted_content",
+            "title":"Promoted content",
             "type":"string"
         }
-        */
     ],
-    //Required. Outputs the module emits.
-    "outputs": [
-      //e.g.
-      /*
-        {
-            "id": "from",
-            "title":"From",
-            "type":"array"
-        }
-      */
-    ],
-    "title": "twitter-trends" /* Required.A display name for the module */
+    "title": "Twitter Trends"
 }
