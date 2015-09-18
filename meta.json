@@ -3,8 +3,8 @@
     ],
     "outputs": [
         {
-            "id": "hashtag",
-            "title":"Hashtag",
+            "id": "name",
+            "title":"Name/hashtag",
             "type":"string"
         }, {
             "id": "url",
