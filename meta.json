@@ -1,5 +1,10 @@
 {
     "inputs": [
+        {
+            "id": "woeid",
+            "title": "Yahoo! WOEID",
+            "type": "integer"
+        }
     ],
     "outputs": [
         {
@@ -20,5 +25,6 @@
             "type":"string"
         }
     ],
+    "icon": "twitter",
     "title": "Twitter Trends"
 }

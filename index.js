@@ -14,19 +14,21 @@ module.exports = {
             , consumerSecret = dexter.environment('twitter_consumer_secret')
             , accessToken = dexter.environment('twitter_access_token')
             , accessTokenSecret = dexter.environment('twitter_access_token_secret')
+            , woeId = step.input('woeid', 2459115).first()
             , T
             , self = this;
         assert(consumerKey, 'environment.twitter_consumer_key required');
         assert(consumerSecret, 'environment.twitter_consumer_secret required');
         assert(accessToken, 'environment.twitter_access_token required');
         assert(accessTokenSecret, 'environment.twitter_access_token_secret required');
+        assert(woeId, 'A Yahoo! WOEID, if included, must be a valid positive integer, or -1');
         T = new Twit({
             consumer_key: consumerKey
             , consumer_secret: consumerSecret
             , access_token: accessToken
             , access_token_secret: accessTokenSecret
         });
-        T.get('trends/place', { id: 1 }, function(err, data, response) {
+        T.get('trends/place', { id: woeId }, function(err, data, response) {
             if(err) {
                 return self.fail(err);
             }

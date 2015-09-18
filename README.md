@@ -2,14 +2,14 @@
 
 This [Dexter](http://rundexter.com) module  will fetch the latest 
 trends from [Twitter](https://dev.twitter.com/rest/reference/get/trends/place).
-It currently fetches global trends, though optional regional trends 
-might be added in the future.
 
 # Configuring the Step
 
 ## Input parameters
 
-None!  In the future, we might include lat/lng or a Yahoo! [WOEID](https://developer.yahoo.com/geo/geoplanet/guide/concepts.html)
+Parameter|Required|Multiple|Details
+---------|--------|--------|-------
+woeid | No | No | A Yahoo! [WOEID](https://developer.yahoo.com/geo/geoplanet/guide/concepts.html) ([IDs for major metros](https://gist.githubusercontent.com/lukemelia/353493/raw/98749866fce79b591e45fb3325c853b4306a8882/WOEIDs%2520for%2520US%2520Cities%2520with%2520population%2520over%2520100K%2520as%2520of%25202008%2520%28from%2520Wikipedia%29)), set to -1 to get global trends.  Defaults to New York, NY, USA
 
 ## Private keys
 
